@@ -1,15 +1,17 @@
 use crate::pizza::types::PizzaType;
-use crate::simple_pizza_factory::SimplePizzaFactory;
+use crate::store::PizzaStore;
+use crate::store::chicago_pizza_store::ChicagoPizzaStore;
+use crate::store::ny_pizza_store::NYPizzaStore;
 
 mod pizza;
-mod pizza_store;
-mod simple_pizza_factory;
+mod store;
 
 pub fn run() -> Result<(), Box<dyn std::error::Error>> {
-    let factory = SimplePizzaFactory {};
-    let order_pizza = pizza_store::PizzaStore::new(factory);
-    order_pizza.order_pizza(PizzaType::Cheese);
-    println!("---------------------");
-    order_pizza.order_pizza(PizzaType::Pepperoni);
+    let ny_store = NYPizzaStore;
+    let chicago_store = ChicagoPizzaStore;
+    println!("\n======== NY Pizza Store ==========");
+    ny_store.order_pizza(PizzaType::Cheese);
+    println!("\n======== Chicago Pizza Store ==========");
+    chicago_store.order_pizza(PizzaType::Cheese);
     Ok(())
 }
