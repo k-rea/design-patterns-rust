@@ -1,7 +1,6 @@
 use crate::pizza::Pizza;
 
-pub struct GreekPizza {
-}
+pub struct GreekPizza {}
 impl GreekPizza {
     pub fn new() -> Self {
         GreekPizza {}
